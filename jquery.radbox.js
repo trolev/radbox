@@ -1,7 +1,12 @@
-/*
-  Radbox
-  Version: v.2.1
+/*!
+ * Radbox
+ * Version: v.2.2.0 (2013-04-16)
+ * 
+ * https://github.com/trolev/radbox
+ * 
+ * RadBox plugin is MIT License released. Point free to use it for personal and commercial need
 */
+
 (function ($) {
   var defaults = {
     wrapClass: 'radbox',
@@ -16,86 +21,92 @@
   var methods = {
     init: function(options) {
       this.each(function() {
-        var $input = $(this),
+        var inpt = $(this),
+            is_checked = inpt.is(':checked'),
             vars = $.extend({}, defaults, options),
-            wrapTag = $('<div class="'+ vars.wrapClass +'">');
+            wrapTag = $('<div class="'+ vars.wrapClass +'">'),
+            touch = ("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch,
+            eventType = (touch) ? "touchend.erbox" : "click.erbox",
+            type = inpt.attr('type');
 
-        if ($input.data('radbox')) {
+        if (inpt.data('radbox')) {
           return;
         }
-        $input.data('radbox', true);
-        $input.data('checkedClass', vars.checkedClass);
-        $input.data('disabledClass', vars.disabledClass);
 
-        $input.addClass(vars.hideClass).wrap(wrapTag);
+        inpt.data({
+          'radbox': true,
+          'checkedClass': vars.checkedClass,
+          'disabledClass': vars.disabledClass
+        });
 
-        var wrap = $input.parent();
+        inpt.addClass(vars.hideClass).wrap(wrapTag);
 
-        if ($input.attr('type') === 'checkbox') {
-          wrap.addClass(vars.checkboxClass);
-          $input.change(function() {
-            methods.setAttr($input, $input.is(':checked'));
+        var prnt = inpt.parent();
+
+        if (type === 'checkbox') {
+          prnt.addClass(vars.checkboxClass);
+          inpt.on('change.erbox', function() {
+            methods.setAttr(inpt, inpt.is(':checked'));
           });
-        } else if ($input.attr('type') === 'radio') {
-          wrap.addClass(vars.radioClass);
-          $input.change(function() {
-            var name = $input.attr('name'),
-                $other = $('input[name="'+ name +'"]').not($input);
+        } else if (type === 'radio') {
+          prnt.addClass(vars.radioClass);
+          inpt.on('change.erbox', function() {
+            var name = inpt.attr('name'),
+                $other = $('input[name="'+ name +'"]').not(inpt);
             $other.removeAttr('checked');
             $other.parent().removeClass(vars.checkedClass);
-            methods.setAttr($input, $input.is(':checked'));
+            methods.setAttr(inpt, inpt.is(':checked'));
           });
         } else {
           return;
         }
 
-        wrap.click(function(e) {
+        prnt.on(eventType, function(e) {
           if ($(e.target).hasClass(vars.wrapClass)) {
-            $('input', this).focus().click();
+            inpt.focus().trigger('click');
             return false;
           };
         });
 
-        $input.focus(function() {
-            $(this).parent().addClass(vars.focusClass); 
+        inpt.on('focus.erbox, blur.erbox', function(e) {
+          if (e.type === 'focus') {
+            prnt.addClass(vars.focusClass); 
+          } else {
+            prnt.removeClass(vars.focusClass); 
+          }
         });
 
-        $input.blur(function() {
-            $(this).parent().removeClass(vars.focusClass); 
-        });
-
-        var is_checked = $input.is(':checked');
         if(is_checked) {
-          wrap.addClass(vars.checkedClass);
+          prnt.addClass(vars.checkedClass);
         }
-        methods.setAttr($input, is_checked);
+        methods.setAttr(inpt, is_checked);
       });
     },
-    setAttr: function(input, val) {
-      input.prop('checked', val);
+    setAttr: function(inpt, val) {
+      inpt.prop('checked', val);
       if (val) {
-        input.parent().addClass(input.data('checkedClass')); 
+        inpt.parent().addClass(inpt.data('checkedClass')); 
       } else {
-        input.parent().removeClass(input.data('checkedClass'));
+        inpt.parent().removeClass(inpt.data('checkedClass'));
       }
     },
     checked: function(options) {
       var val = (typeof options === 'boolean') ? options : true;
       this.each(function() {
-        var $input = $(this);
-        methods.setAttr($input, val);
+        var inpt = $(this);
+        methods.setAttr(inpt, val);
       });
     },
     disabled: function(options) {
       var val = (typeof options === 'boolean') ? options : true;
       this.each(function() {
-        var $input = $(this);
-        $input.prop("disabled", val);
+        var inpt = $(this);
+        inpt.prop("disabled", val);
 
         if (val) {
-          $input.parent().addClass($input.data('disabledClass')); 
+          inpt.parent().addClass(inpt.data('disabledClass')); 
         } else {
-          $input.parent().removeClass($input.data('disabledClass'));
+          inpt.parent().removeClass(inpt.data('disabledClass'));
         }
       });
     }

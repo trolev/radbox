@@ -73,6 +73,6 @@ Stylization checkboxes and radio buttons.
 ~~~~
 
 
-##License
+## License
 
 RadBox plugin is MIT License released. Point free to use it for personal and commercial need

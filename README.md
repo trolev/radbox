@@ -3,7 +3,7 @@
 Stylization checkboxes and radio buttons.
 Стилизация чекбоксов и радио кнопок.
 
-### Quickstart
+## Quickstart
 
 ~~~~{.html}
   <input type="radio">
@@ -13,7 +13,7 @@ Stylization checkboxes and radio buttons.
   $('[type=checkbox], [type=radio]').radbox();
 ~~~~
 
-### Checked/Unchecked
+## Checked/Unchecked
 
 ~~~~{.js}
   // Checked
@@ -23,7 +23,7 @@ Stylization checkboxes and radio buttons.
   $('[type=checkbox]').radbox({'checked', false});
 ~~~~
 
-### Disabled/Enabled
+## Disabled/Enabled
 
 ~~~~{.js}
   // Disabled
@@ -33,7 +33,7 @@ Stylization checkboxes and radio buttons.
   $('[type=checkbox]').radbox({'disabled', false});
 ~~~~
 
-### Settings
+## Settings
 
 * `wrapClass`: 'radbox'
 * `checkboxClass`: 'checkbox'
@@ -43,7 +43,7 @@ Stylization checkboxes and radio buttons.
 * `disabledClass`: 'disabled'
 * `hideClass`: 'hidden
 
-#### Example
+## Example
 
 ~~~~{.js}
   $('[type=checkbox], [type=radio]').radbox({
@@ -71,3 +71,8 @@ Stylization checkboxes and radio buttons.
   <!-- Disabled -->
   <div class="radbox checkbox disabled">
 ~~~~
+
+
+##License
+
+RadBox plugin is MIT License released. Point free to use it for personal and commercial need

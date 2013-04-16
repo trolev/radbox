@@ -37,7 +37,7 @@ Stylization checkboxes and radio buttons.
 
 * `wrapClass`: 'radbox'
 * `checkboxClass`: 'checkbox'
-* `radioClass`: 'radio',
+* `radioClass`: 'radio'
 * `checkedClass`: 'checked'
 * `focusClass`: 'focus'
 * `disabledClass`: 'disabled'
@@ -57,17 +57,17 @@ Stylization checkboxes and radio buttons.
   });
 ~~~~
 ~~~~{.html}
-  <!-- before -->
+  <!-- BEFORE -->
+
   <input type="checkbox">
 
-  <!-- after -->
+  <!-- AFTER -->
+
   <div class="radbox checkbox">
     <input type="checkbox" class="hidden">
   </div>
   <!-- Checked -->
   <div class="radbox checkbox checked">
-    ...
   <!-- Disabled -->
   <div class="radbox checkbox disabled">
-    ...
 ~~~~

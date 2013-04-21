@@ -41,7 +41,9 @@ Stylization checkboxes and radio buttons.
 * `checkedClass`: 'checked'
 * `focusClass`: 'focus'
 * `disabledClass`: 'disabled'
-* `hideClass`: 'hidden
+* `hideClass`: 'hidden'
+* `areaClass`: 'area'
+* `activeArea`: -8
 
 ## Example
 
@@ -53,7 +55,9 @@ Stylization checkboxes and radio buttons.
     checkedClass: 'checked',
     focusClass: 'focus',
     disabledClass: 'disabled',
-    hideClass: 'hidden'
+    hideClass: 'hidden',
+    areaClass`: 'area',
+    activeArea`: -8
   });
 ~~~~
 ~~~~{.html}
@@ -65,6 +69,7 @@ Stylization checkboxes and radio buttons.
 
   <div class="radbox checkbox">
     <input type="checkbox" class="hidden">
+    <span class="area" style="display: block; position: absolute; overflow: hidden; left: -8px; bottom: -8px; ..."></span>
   </div>
   <!-- Checked -->
   <div class="radbox checkbox checked">

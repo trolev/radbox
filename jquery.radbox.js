@@ -10,6 +10,12 @@
 (function ($) {
   var isTouch = document.createTouch !== undefined,
       eventType = (isTouch) ? "touchend.erbox" : "click.erbox",
+      activeAreaCss = {
+        'display': 'block',
+        'position': 'absolute',
+        'overflow': 'hidden'
+      }
+
       defaults = {
         wrapClass: 'radbox',
         checkboxClass: 'checkbox',
@@ -17,7 +23,9 @@
         checkedClass: 'checked',
         focusClass: 'focus',
         disabledClass: 'disabled',
-        hideClass: 'hidden'
+        hideClass: 'hidden',
+        activeArea: -8,
+        areaClass: 'area'
       };
 
   var methods = {
@@ -61,8 +69,28 @@
           return;
         }
 
-        prnt.on(eventType, function(e) {
-          if ($(e.target).hasClass(vars.wrapClass)) {
+        if (typeof vars.activeArea === 'number' && vars.areaClass) {
+          var css = {
+            'left': vars.activeArea,
+            'right': vars.activeArea,
+            'top': vars.activeArea,
+            'bottom': vars.activeArea
+          }
+          var area = $('<span></span>')
+                    .addClass(vars.areaClass)
+                    .css(activeAreaCss)
+                    .css(css);
+          prnt.append(area);
+
+          var targetClass = vars.areaClass,
+              target = area;
+        } else {
+          var targetClass = vars.wrapClass,
+              target = prnt;
+        }
+
+        target.on(eventType, function(e) {
+          if ($(e.target).hasClass(targetClass)) {
             inpt.focus().trigger('click');
             return false;
           };

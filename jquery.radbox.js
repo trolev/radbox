@@ -1,6 +1,6 @@
 /*!
  * Radbox
- * Version: v.2.2.0 (2013-04-16)
+ * Version: v.2.2.1 (2013-04-21)
  * 
  * https://github.com/trolev/radbox
  * 
@@ -8,15 +8,17 @@
 */
 
 (function ($) {
-  var defaults = {
-    wrapClass: 'radbox',
-    checkboxClass: 'checkbox',
-    radioClass: 'radio',
-    checkedClass: 'checked',
-    focusClass: 'focus',
-    disabledClass: 'disabled',
-    hideClass: 'hidden'
-  };
+  var isTouch = document.createTouch !== undefined,
+      eventType = (isTouch) ? "touchend.erbox" : "click.erbox",
+      defaults = {
+        wrapClass: 'radbox',
+        checkboxClass: 'checkbox',
+        radioClass: 'radio',
+        checkedClass: 'checked',
+        focusClass: 'focus',
+        disabledClass: 'disabled',
+        hideClass: 'hidden'
+      };
 
   var methods = {
     init: function(options) {
@@ -25,8 +27,6 @@
             is_checked = inpt.is(':checked'),
             vars = $.extend({}, defaults, options),
             wrapTag = $('<div class="'+ vars.wrapClass +'">'),
-            touch = ("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch,
-            eventType = (touch) ? "touchend.erbox" : "click.erbox",
             type = inpt.attr('type');
 
         if (inpt.data('radbox')) {

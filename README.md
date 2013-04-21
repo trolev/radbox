@@ -56,8 +56,8 @@ Stylization checkboxes and radio buttons.
     focusClass: 'focus',
     disabledClass: 'disabled',
     hideClass: 'hidden',
-    areaClass`: 'area',
-    activeArea`: -8
+    areaClass: 'area',
+    activeArea: -8
   });
 ~~~~
 ~~~~{.html}

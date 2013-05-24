@@ -22,13 +22,13 @@ Base styles
     height: 12px;
     cursor: pointer;
   }
-  .radbox.focus {
-    // focus
-  }
   .radbox .hidden {
     position: absolute;
     left: -9000px;
     top: 0;
+  }
+  .radbox.focus {
+    // focus
   }
   .radio {
     // background

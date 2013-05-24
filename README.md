@@ -13,6 +13,31 @@ Stylization checkboxes and radio buttons.
   $('[type=checkbox], [type=radio]').radbox();
 ~~~~
 
+Base styles
+~~~~{.css}
+  .radbox {
+    position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+  }
+  .radbox.focus {
+    // focus
+  }
+  .radbox .hidden {
+    position: absolute;
+    left: -9000px;
+    top: 0;
+  }
+  .radio {
+    // background
+  }
+  .checked {
+    // background
+  }
+~~~~
+
 ## Checked/Unchecked
 
 ~~~~{.js}

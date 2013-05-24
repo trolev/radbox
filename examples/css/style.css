@@ -1,0 +1,49 @@
+/*base*/
+.page {
+  width: 800px;
+  margin: 0 auto;
+  padding: 50px 0;
+  margin: 0 auto;
+}
+
+.radbox,
+input {
+  margin: 10px;
+}
+
+/*radbox*/
+.radbox {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+.radbox.focus {
+  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 0 2px #fff inset;
+  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 0 2px #fff inset;
+  -ms-box-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 0 2px #fff inset;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 0 2px #fff inset;
+}
+
+.radbox .hidden {
+  position: absolute;
+  left: -9000px;
+  top: 0;
+}
+
+.radio {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.checked {
+  background-color: #ddd;
+  -webkit-box-shadow: 0 0 0 2px #fff inset;
+  -moz-box-shadow: 0 0 0 2px #fff inset;
+  -ms-box-shadow: 0 0 0 2px #fff inset;
+  box-shadow: 0 0 0 2px #fff inset;
+}

@@ -27,15 +27,18 @@ Base styles
     left: -9000px;
     top: 0;
   }
+
   .radbox.focus {
     // focus
   }
-  .radio {
-    // background
-  }
-  .checked {
-    // background
-  }
+
+  // radio
+  .radio { ... }
+  .radio.checked { ... }
+
+  // checkbox
+  .checkbox { ... }
+  .checkbox.checked { ... }
 ~~~~
 
 ## Checked/Unchecked

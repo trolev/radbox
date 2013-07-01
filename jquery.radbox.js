@@ -1,6 +1,6 @@
 /*!
  * Radbox
- * Version: v.2.2.1 (2013-04-21)
+ * Version: v.2.2.2 (July 1, 2013)
  * 
  * https://github.com/trolev/radbox
  * 
@@ -24,7 +24,6 @@
         focusClass: 'focus',
         disabledClass: 'disabled',
         hideClass: 'hidden',
-        activeArea: -8,
         areaClass: 'area'
       };
 
@@ -69,31 +68,13 @@
           return;
         }
 
-        if (typeof vars.activeArea === 'number' && vars.areaClass) {
-          var css = {
-            'left': vars.activeArea,
-            'right': vars.activeArea,
-            'top': vars.activeArea,
-            'bottom': vars.activeArea
-          }
-          var area = $('<span></span>')
-                    .addClass(vars.areaClass)
-                    .css(activeAreaCss)
-                    .css(css);
-          prnt.append(area);
+        var area = $('<span></span>')
+                   .addClass(vars.areaClass);
+        prnt.append(area);
 
-          var targetClass = vars.areaClass,
-              target = area;
-        } else {
-          var targetClass = vars.wrapClass,
-              target = prnt;
-        }
-
-        target.on(eventType, function(e) {
-          if ($(e.target).hasClass(targetClass)) {
-            inpt.focus().trigger('click');
-            return false;
-          };
+        area.on(eventType, function(e) {
+          inpt.focus().trigger('click');
+          return false;
         });
 
         inpt.on('focus.erbox, blur.erbox', function(e) {

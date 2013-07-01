@@ -22,23 +22,43 @@ Base styles
     height: 12px;
     cursor: pointer;
   }
+
   .radbox .hidden {
     position: absolute;
     left: -9000px;
     top: 0;
   }
 
+  .radbox .area {
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    display: block;
+  }
+
   .radbox.focus {
-    // focus
+    ...
   }
 
   // radio
-  .radio { ... }
-  .radio.checked { ... }
+  .radio {
+    ...
+  }
+
+  .radio.checked {
+    ...
+  }
 
   // checkbox
-  .checkbox { ... }
-  .checkbox.checked { ... }
+  .checkbox {
+    ...
+  }
+
+  .checkbox.checked {
+    ...
+  }
 ~~~~
 
 ## Checked/Unchecked
@@ -71,7 +91,6 @@ Base styles
 * `disabledClass`: 'disabled'
 * `hideClass`: 'hidden'
 * `areaClass`: 'area'
-* `activeArea`: -8
 
 ## Example
 
@@ -84,8 +103,7 @@ Base styles
     focusClass: 'focus',
     disabledClass: 'disabled',
     hideClass: 'hidden',
-    areaClass: 'area',
-    activeArea: -8
+    areaClass: 'area'
   });
 ~~~~
 ~~~~{.html}
@@ -97,7 +115,7 @@ Base styles
 
   <div class="radbox checkbox">
     <input type="checkbox" class="hidden">
-    <span class="area" style="display: block; position: absolute; overflow: hidden; left: -8px; bottom: -8px; ..."></span>
+    <span class="area"></span>
   </div>
   <!-- Checked -->
   <div class="radbox checkbox checked">

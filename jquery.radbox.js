@@ -1,6 +1,6 @@
 /*!
  * Radbox
- * Version: v.2.2.2 (July 1, 2013)
+ * Version: v.2.2.3 (July 17, 2013)
  * 
  * https://github.com/trolev/radbox
  * 
@@ -32,6 +32,7 @@
       this.each(function() {
         var inpt = $(this),
             is_checked = inpt.is(':checked'),
+            is_disabled = inpt.is(':disabled'),
             vars = $.extend({}, defaults, options),
             wrapTag = $('<div class="'+ vars.wrapClass +'">'),
             type = inpt.attr('type');
@@ -87,6 +88,10 @@
 
         if(is_checked) {
           prnt.addClass(vars.checkedClass);
+        }
+
+        if(is_disabled) {
+          prnt.addClass(vars.disabledClass);
         }
         methods.setAttr(inpt, is_checked);
       });

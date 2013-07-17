@@ -1,4 +1,6 @@
-/*base*/
+a {
+  color: #333;
+}
 .page {
   width: 800px;
   margin: 0 auto;
@@ -11,7 +13,23 @@ input {
   margin: 10px;
 }
 
-/*radbox*/
+h2 {
+  font-size: 25px;
+}
+
+h2 a {
+  font-size: 14px;
+}
+
+code {
+  padding: 5px;
+  border: 1px solid #bfbfbf;
+  display: block;
+  font-size: 12px;
+  background: #f5f2e7;
+}
+
+  /*radbox*/
 .radbox {
   position: relative;
   display: inline-block;
@@ -54,4 +72,9 @@ input {
   -moz-box-shadow: 0 0 0 2px #fff inset;
   -ms-box-shadow: 0 0 0 2px #fff inset;
   box-shadow: 0 0 0 2px #fff inset;
+}
+
+.disabled {
+  opacity: 0.40;
+  cursor: default;
 }

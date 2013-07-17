@@ -36,9 +36,13 @@ Base styles
     right: -5px;
     bottom: -5px;
     display: block;
-  }
+  } /* !!!element for click!!! */
 
   .radbox.focus {
+    ...
+  }
+
+  .radbox.disabled {
     ...
   }
 
@@ -65,20 +69,20 @@ Base styles
 
 ~~~~{.js}
   // Checked
-  $('[type=checkbox]').radbox({'checked'});
-  $('[type=checkbox]').radbox({'checked', true});
+  $('[type=checkbox]').radbox('checked');
+  $('[type=checkbox]').radbox('checked', true);
   // Unchecked
-  $('[type=checkbox]').radbox({'checked', false});
+  $('[type=checkbox]').radbox('checked', false);
 ~~~~
 
 ## Disabled/Enabled
 
 ~~~~{.js}
   // Disabled
-  $('[type=checkbox]').radbox({'disabled'});
-  $('[type=checkbox]').radbox({'disabled', true});
+  $('[type=checkbox]').radbox('disabled');
+  $('[type=checkbox]').radbox('disabled', true);
   // Enabled
-  $('[type=checkbox]').radbox({'disabled', false});
+  $('[type=checkbox]').radbox('disabled', false);
 ~~~~
 
 ## Settings

@@ -19,8 +19,50 @@
     <input type="radio" name="radio">
     <input type="radio" name="radio">
     <input type="radio" name="radio">
-  </div>
+    <br>
+    <br>
+    <br>
+    <h2>and... 
+      <a href="#?" id="checked-all">checked all</a> 
+      <a href="#?" id="unchecked-all">unchecked all</a>
+    </h2>
+    <input type="checkbox" class="all">
+    <input type="checkbox" class="all">
+    <input type="checkbox" class="all">
+<code>
+var $all = $('.all');<br><br>
+$('#checked-all').click(function(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$all.radbox('checked');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>
+});<br><br>
 
+$('#unchecked-all').click(function(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$all.radbox('checked', false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>
+});</code>
+    <br>
+    <br>
+    <br>
+    <h2>and... 
+      <a href="#?" id="disabled-all">disabled all</a> 
+      <a href="#?" id="enabled-all">enabled all</a>
+    </h2>
+    <input type="checkbox" class="all2">
+    <input type="checkbox" class="all2">
+    <input type="checkbox" class="all2">
+<code>
+var $all2 = $('.all2');<br><br>
+$('#disabled-all').click(function(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$all2.radbox('disabled');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>
+});<br><br>
+$('#enabled-all').click(function(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$all2.radbox('disabled', false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>
+  });</code>
+    
+  </div>
+  
   <script type="text/javascript" src="http://yandex.st/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="../jquery.radbox.js"></script>
   <script type="text/javascript" src="js/script.js"></script>

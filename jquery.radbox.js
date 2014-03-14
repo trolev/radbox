@@ -75,9 +75,9 @@
                    .addClass(vars.areaClass);
         prnt.append(area);
 
-        area.on(eventType, function(e) {
+        area.on(eventType, function(event) {
+          event.preventDefault();
           inpt.focus().trigger('click');
-          return false;
         });
 
         inpt.on('focus.erbox, blur.erbox', function(e) {

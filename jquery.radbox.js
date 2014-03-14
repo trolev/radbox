@@ -1,6 +1,6 @@
 /*!
  * Radbox
- * Version: v.2.2.3 (July 30, 2013)
+ * Version: v.2.2.4 (March 14, 2014)
  * 
  * https://github.com/trolev/radbox
  * 
@@ -8,13 +8,14 @@
 */
 
 (function ($) {
-  var isTouch = document.createTouch !== undefined,
-      eventType = (isTouch) ? "touchend.erbox" : "click.erbox",
+  var is_mobile = /ipad|iphone|ipod|android|blackberry|windows phone|opera mini|silk/i.test(navigator.userAgent),
+      is_touch = ('ontouchstart' in window && is_mobile) ? true : false,
+      eventType = is_touch ? 'touchstart.erbox' : 'click.erbox',
       activeAreaCss = {
         'display': 'block',
         'position': 'absolute',
         'overflow': 'hidden'
-      }
+      },
 
       defaults = {
         wrapClass: 'radbox',
@@ -29,7 +30,7 @@
 
   var methods = {
     init: function(options) {
-      this.each(function() {
+      return this.each(function() {
         var inpt = $(this),
             is_checked = inpt.is(':checked'),
             vars = $.extend({}, defaults, options),
@@ -103,14 +104,14 @@
     },
     checked: function(options) {
       var val = (typeof options === 'boolean') ? options : true;
-      this.each(function() {
+      return this.each(function() {
         var inpt = $(this);
         methods.setAttr(inpt, val);
       });
     },
     disabled: function(options) {
       var val = (typeof options === 'boolean') ? options : true;
-      this.each(function() {
+      return this.each(function() {
         var inpt = $(this);
         inpt.prop("disabled", val);
 
